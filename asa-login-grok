@@ -1,0 +1,1 @@
+<%{NUMBER:syslog.facility}>%{CISCOTIMESTAMP:timestamp} %{SYSLOGHOST:host.name}_%{NOTSPACE:host.os.version} : %%{WORD:host.os.type}-%{INT:syslog.severity}-%{NOTSPACE:message.id}: %{WORD:event.action} %{WORD:event.outcome} from %{IPORHOST:source.ip}/%{NUMBER:source.port} to %{WORD:host.interface.name}:%{IPORHOST:host.ip}/%{WORD:host.port} for user \"%{WORD:user.name}\"
