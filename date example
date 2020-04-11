@@ -1,0 +1,4 @@
+   date {
+        match => ["timestamp", "dd/MMM/yyyy:HH:mm:ss Z"]
+        target => "@timestamp"
+   }
