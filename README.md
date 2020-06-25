@@ -1,2 +1,2 @@
 # elastic
-Elastic Repos for Configs
+Random Elastic ML jobs, detection rules, etc.
