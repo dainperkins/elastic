@@ -1,0 +1,42 @@
+### MS Card Config to send MSTeams Alerts
+### Grab the URL from the channel you want to send to (requires admin I believe)
+### Create the detection (in this case from ML Job) and paste the following into the body
+### Replace the first section of the link URL with your ESS url (everything before /siem/....)
+{
+    "@type": "MessageCard",
+    "@context": "http://schema.org/extensions",
+    "themeColor": "0076D7",
+    "summary": "ESS SIEM Alert",
+    "sections": [
+        {
+            "activityTitle": "Elastic SIEM Signal Detected",
+            "activitySubtitle": "{{context.rule.name}}",
+            "activityImage": "https://www.elastic.co/favicon-32x32.png",
+            "facts": [
+                {
+                    "name": "Risk Score",
+                    "value": "{{context.rule.risk_score}}"
+                },
+                {
+                    "name": "Rule severity",
+                    "value": "{{context.rule.severity}}"
+                },
+                {
+                    "name": "Rule Description",
+                    "value": "{{context.rule.description}} "
+                }
+            ],
+            "markdown": true
+        },
+        {
+            "buttons": [
+                {
+                    "type": "openUrl",
+                    "title": "View Signal",
+                    "value": "[MY ESS URL]{{{context.results_link}}}"
+                }
+            ]
+        }
+            ]
+}
+
